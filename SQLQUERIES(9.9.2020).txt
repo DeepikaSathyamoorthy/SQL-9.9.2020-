@@ -1,0 +1,244 @@
+1)
+create database sample;
+CREATE TABLE sample.programmer (
+  EmpNo numeric(5) NOT NULL,
+  ProjectID VARCHAR(5) NULL,
+  LastName VARCHAR(30) NOT NULL,
+  FirstName VARCHAR(30) NOT NULL,
+  HireDate DATE NULL,
+  Language VARCHAR(15) NULL,
+  TaskNo numeric(2) NULL,
+  Privilege VARCHAR(25) NULL,
+  PRIMARY KEY (EmpNo,LastName,FirstName));
+
+2)
+INSERT INTO sample.programmer(EmpNo,ProjectID,LastName,FirstName,HireDate,Language,TaskNo,Privilege)
+VALUES (201,"NPR","Saurav","Gupta",'95/1/1',"VB",52,"Secret");
+INSERT INTO sample.programmer(EmpNo,ProjectID,LastName,FirstName,HireDate,Language,TaskNo,Privilege)
+VALUES (390,"KCW","Ghosh","Pinky",'93/1/5',"Java",11,"Top Secret");
+INSERT INTO sample.programmer(EmpNo,ProjectID,LastName,FirstName,HireDate,Language,TaskNo,Privilege)
+VALUES (789,"RNC","Agarwal","Praveen",'98/8/31',"VB",11,"Secret");
+INSERT INTO sample.programmer(EmpNo,LastName,FirstName,HireDate,ProjectID,Language,TaskNo,Privilege)
+VALUES (134,"Chaudary","Supriyo",'95/7/15',"TIPPS","C++",52,"Secret");
+INSERT INTO sample.programmer(EmpNo,LastName,FirstName,HireDate,ProjectID,Language,TaskNo,Privilege)
+VALUES (896,"Jha","Ranjit",'97/6/15',"KCW","Java",10,"Top Secret");
+INSERT INTO sample.programmer(EmpNo,LastName,FirstName,HireDate,ProjectID,Language,TaskNo,Privilege)
+VALUES (345,"John","Peter",'99/11/15',"TIPPS","Java",52,null);
+INSERT INTO sample.programmer(EmpNo,LastName,FirstName,HireDate,ProjectID,Language,TaskNo,Privilege)
+VALUES (563,"Anderson","Andy",'94/8/15',"NITTS","C++",89,"Confidential");
+
+
+3)
+
+create table sample.Weather(
+City VarChar(45) NOT NULL,
+State VarChar(45) NULL,
+High INT NULL,
+Low INT NULL,
+ PRIMARY KEY (City)
+);
+
+
+INSERT INTO sample.weather(City,State,High,Low)
+VALUES ("Calcutta","West Bengal",105,90);
+INSERT INTO sample.weather(City,State,High,Low)
+VALUES ("Trivandrum","Kerala",101,92);
+INSERT INTO sample.weather(City,State,High,Low)
+VALUES ("Mumbai","Maharastra",88,69);
+INSERT INTO sample.weather(City,State,High,Low)
+VALUES ("Bangalore","Karnataka",77,60);
+INSERT INTO sample.weather(City,State,High,Low)
+VALUES ("New Delhi",null,80,72);
+
+
+4)
+
+CREATE TABLE sample.books (
+  BookId INT NOT NULL,
+  Title VARCHAR(15) NULL,
+  TopicId VARCHAR(15) NULL,
+  Publisher Name VARCHAR(100) NULL,
+  PlaceOfPublication VARCHAR(45) NULL,
+  Price INT NULL,
+  Purchase Date DATE NULL,
+  ShelfNo VARCHAR(45) NULL,
+  PRIMARY KEY (BookId));
+
+INSERT INTO sample.books (BookId,Title,TopicId,PublisherName,PlaceOfPublication,Price,PurchaseDate,ShelfNo)
+ VALUES (8293,"DBMS","DB1","Prentice Hall","Mumbai",255,'95/1/1',"S11");
+INSERT INTO sample.books (BookId,Title,TopicId,PublisherName,PlaceOfPublication,Price,PurchaseDate,ShelfNo)
+ VALUES (5645,"DBMS","DB1","Pearson Education","Mumbai",655,'93/5/1',"S12");
+INSERT INTO sample.books (BookId,Title,TopicId,PublisherName,PlaceOfPublication,Price,PurchaseDate,ShelfNo)
+ VALUES (6565,"C","C1","TMH","Mumbai",840,'98/8/31',"S66");
+ INSERT INTO sample.books (BookId,Title,TopicId,PublisherName,PlaceOfPublication,Price,PurchaseDate,ShelfNo)
+ VALUES (6567,"C++","CPlus1","ABC Publichers","Delhi",300,'95/7/15',"S77");
+ INSERT INTO sample.books (BookId,Title,TopicId,PublisherName,PlaceOfPublication,Price,PurchaseDate,ShelfNo)
+ VALUES (4576,"JAVA","JAVA1","Guru Govind Publications","Delhi",500,'97/6/15',"S87");
+ INSERT INTO sample.books (BookId,Title,TopicId,PublisherName,PlaceOfPublication,Price,PurchaseDate,ShelfNo)
+ VALUES (3433,"OOPS","OOPS1","Dave Publishers","Pune",600,'99/11/15',"S56");
+ INSERT INTO sample.books (BookId,Title,TopicId,PublisherName,PlaceOfPublication,Price,PurchaseDate,ShelfNo)
+ VALUES (4655,"SAD","SAD1","Sanjan Publication","Cochin",700,'94/8/15',"S76");
+
+
+5)
+update sample.programmer set ProjectId = "NITTS" ,Language="C++"
+WHERE EmpNo =201 ;
+
+update sample.books set ShelfNo = "S10"
+WHERE Title="DBMS" ;
+
+DELETE FROM sample.programmer
+WHERE EmpNo = 134;
+
+ALTER TABLE sample.weather 
+ADD COLUMN NatureOfClimate VARCHAR(45) NULL AFTER Low;
+
+drop table sample.weather;
+
+6)
+
+CREATE TABLE sample.customer (
+  CUSTID INT NOT NULL,
+  FNAME VARCHAR(30) NULL,
+  LNAME VARCHAR(30) NULL,
+  ADDRESS VARCHAR(50) NULL,
+  PHONENO VARCHAR(50) NULL,
+  CITY VARCHAR(20) NULL,
+  COUNTRY VARCHAR(20) NULL,
+  DATEFIRSTPURCHASED DATE NULL,
+  SUPPLIERNO INT NULL,
+  PRIMARY KEY (CUSTID))
+  FOREIGN KEY (SUPPLIERID) REFERENCES SUPPLIER(SUPPLIERID);
+
+
+INSERT INTO sample.CUSTOMER (CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERNO)
+ VALUES (1001,"Das","Jeyaseelan","119, park Avenue, II street",9841093428,"Coimbatore","India",'2004/1/10',1);
+INSERT INTO sample.CUSTOMER (CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERNO)
+ VALUES (2001,"Gopi","Govindaraj","241, I floor, Kamaraj street, Madippakkam",9444124590,"Chennai","India",'2005/3/25',4);
+ INSERT INTO sample.CUSTOMER (CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERNO)
+ VALUES (1201,"Dilip","Kishore","43, II Avenue, Anna Nagar",9841093428,"Bangalore","India",'2004/8/20',2);
+ INSERT INTO sample.CUSTOMER (CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERNO)
+ VALUES (1300,"Anand","Chowdary","42/1 sector 1, II Street",9841054348,"Bangalore","India",'2005/5/15',2);
+ INSERT INTO sample.CUSTOMER (CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERNO)
+ VALUES (1220,"Chandra","Nagarajan","83, lal bagh",98410672354,"Bangalore","India",'2006/2/12',4);
+ INSERT INTO sample.CUSTOMER (CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERNO)
+ VALUES (1221,"Abishek","Kumar","13,kishori park,",94447623901,"Chennai","India",'2004/5/15',1);
+ INSERT INTO sample.CUSTOMER (CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERNO)
+ VALUES (1320,"Nikhil","Pandit","218, alwaanya street",94448923091,"Salem","India",'2006/4/21',3);
+ INSERT INTO sample.CUSTOMER (CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERNO)
+ VALUES (1222,"Meenu","Monica","C11, church road",98410563421,"Trichy","India",'2004/8/20',1);
+ INSERT INTO sample.CUSTOMER (CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERNO)
+ VALUES (1225,"Pavan","Kumar","128/A, North Mada Street",99934782103,"Madurai","India",'2004/8/18',4);
+
+
+
+CREATE TABLE sample.supplier (
+  SUPPLIERID INT NOT NULL,
+  SNAME VARCHAR(30) NULL,
+  SCITY VARCHAR(30) NULL,
+  SPHONE VARCHAR(45) NOT NULL,
+  EMAIL VARCHAR(50) NULL,
+  PRIMARY KEY (SUPPLIERID));
+
+
+INSERT INTO sample.supplier (SUPPLIERID,SNAME,SCITY,SPHONE,EMAIL)
+ VALUES (1,"Dilip","Chennai","8999900000","dilip@abc.co.in");
+INSERT INTO sample.supplier (SUPPLIERID,SNAME,SCITY,SPHONE,EMAIL)
+ VALUES (2,"Tarun","Madurai","8999911111","tarun@xyz.com");
+ INSERT INTO sample.supplier (SUPPLIERID,SNAME,SCITY,SPHONE,EMAIL)
+ VALUES (3,"Naresh","Coimbatore","8999922222","g.naresh@xyzl.com");
+ INSERT INTO sample.supplier (SUPPLIERID,SNAME,SCITY,SPHONE,EMAIL)
+ VALUES (4,"Ganeshan","Trichy","8999933333","ganeshan_83@ijk.com");
+ 
+
+CREATE TABLE sample.orders
+(
+ORDERID int NOT NULL,
+ORDERDATE DATE NULL,
+CUSTID INT,
+QUANTITY INT ,
+ITEMID INT,
+CHECK (QUANTITY>0)
+FOREIGN KEY (ITEMID) REFERENCES ITEMS(ITEMID)
+);
+
+
+INSERT INTO sample.ORDERS (ORDERID,ORDERDATE,CUSTID,QUANTITY,ITEMID)
+ VALUES (1,'2004/1/12',1001,30,25);
+INSERT INTO sample.ORDERS (ORDERID,ORDERDATE,CUSTID,QUANTITY,ITEMID)
+ VALUES (2,'2005/5/6',1202,38,24);
+ INSERT INTO sample.ORDERS (ORDERID,ORDERDATE,CUSTID,QUANTITY,ITEMID)
+ VALUES (3,'2006/12/15',1220,10,22);
+ INSERT INTO sample.ORDERS (ORDERID,ORDERDATE,CUSTID,QUANTITY,ITEMID)
+ VALUES (4,'2004/5/21',1233,12,21);
+
+
+CREATE TABLE sample.items (
+  ITEMID INT NOT NULL,
+  ITEMNAME VARCHAR(35) NOT NULL,
+  SUPPLIERID INT NULL,
+  MINQTY INT NOT NULL,
+  MAXQTY INT NOT NULL,
+  PRICE NUMERIC(5,2) NULL,
+  PRIMARY KEY (ITEMID));
+
+
+INSERT INTO sample.ITEMS (ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE)
+ VALUES (20,"pEARS SOAP",4,7,20,30.00);
+INSERT INTO sample.ITEMS (ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE)
+ VALUES (21,"VVD Coconut Oil",2,8,15,79.00);
+ INSERT INTO sample.ITEMS (ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE)
+ VALUES (22,"Ponds Power",3,6,25,106.00);
+ INSERT INTO sample.ITEMS (ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE)
+ VALUES (23,"Reynols Blue Pen",1,10,30,15.00);
+ INSERT INTO sample.ITEMS (ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE)
+ VALUES (24,"Reynols Black Pen",1,10,30,16.00);
+ INSERT INTO sample.ITEMS (ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE)
+ VALUES (25,"Mysore Sandal Soap",4,7,25,25.00);
+ INSERT INTO sample.ITEMS (ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE)
+ VALUES (26,"Fair And Lovely",3,5,15,55.00);
+ INSERT INTO sample.ITEMS (ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE)
+ VALUES (27,"Rexona Deo Spray",2,5,20,100.00);
+ INSERT INTO sample.ITEMS (ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE)
+ VALUES (28,"Dove Soap",4,7,15,85.00);
+
+
+SELECT *
+FROM sample.customer
+WHERE city = 'Chennai';
+
+SELECT customer.FNAME,customer.LNAME
+FROM SAMPLE.customer
+WHERE ITEMS.SUPPLIERID = 2;
+
+SELECT SNAME
+FROM SAMPLE.supplier
+WHERE SCITY="Coimbatore";
+
+SELECT SNAME
+FROM SAMPLE.supplier
+WHERE SNAME LIKE "G%";
+
+SELECT FNAME
+FROM SAMPLE.CUSTOMER
+WHERE FNAME NOT LIKE "%e%";
+
+SELECT DATEFIRSTPURCHASED
+FROM SAMPLE.CUSTOMER
+ORDER BY customer.DATEFIRSTPURCHASED (yy,'2006')DESC;
+
+SELECT ORDERID,ORDERDATE,CUSTID,QUANTITY,ITEMID
+FROM SAMPLE.ORDERS
+WHERE QUANTITY<35;
+
+
+SELECT ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE
+FROM SAMPLE.ITEMS
+WHERE SUPPLIERID=4;
+
+SELECT ITEMID,ITEMNAME,SUPPLIERID,MINQTY,MAXQTY,PRICE
+FROM SAMPLE.ITEMS
+WHERE SUPPLIERID=3 AND MINQTY>9;
+
+
+
